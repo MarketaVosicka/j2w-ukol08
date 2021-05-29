@@ -5,8 +5,56 @@
     <title>Můj blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 <body>
-    <h1>Tady bude můj blog…</h1>
+<h1>Můj blog</h1>
+<div class="container" th:each="post : ${post}">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div id="postlist">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <h3 class="pull-left" th:utext="${post.title}">Welcome</h3>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h4 class="pull-right">
+                                        <small><em th:utext="${#temporals.format(post.published, 'd. MMMM yyyy')}">1.
+                                            ledna 1980</em></small>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body" th:utext="${post.perex}">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in...
+                    </div>
+
+                    <div class="panel-footer">
+                        <span class="label label-default" th:utext="${post.author}">Aldus</span>
+                        <span class="label label-default pull-right"><a href="/post/welcome"
+                                                                        th:href="@{/post/{slug}(slug=${post.slug})}">Číst dál</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pager">
+    <a th:each="pageNumber : ${#numbers.sequence(0,post.totalPages-1)}"
+       th:href="@{${currentURL}(size=${post.size}, page=${pageNumber})}"
+       th:text="${pageNumber + 1}"
+       class="page"
+       th:classappend="${pageNumber==post.number} ? 'active'"></a>
+</div>
 </body>
 </html>

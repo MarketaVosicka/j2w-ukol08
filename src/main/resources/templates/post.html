@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Můj blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<body>
+<div class="panel" th:each="post : ${post}">
+    <div class="panel-heading">
+        <div class="text-center">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h3 class="pull-left" th:utext="${post.title}">Welcome</h3>
+                </div>
+                <div class="col-sm-3">
+                    <h4 class="pull-right">
+                        <small><em th:utext="${#temporals.format(post.published, 'd. MMMM yyyy')}">1. ledna
+                            1980</em></small>
+                    </h4>
+                </div>
+            </div>
+            <div class="pull-left">Autor:
+                <span class="label label-default" th:utext="${post.author}">Aldus</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body" th:utext="${post.body}">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in...
+    </div>
+    <div class="panel-footer">
+
+    </div>
+</div>
+</body>
+</html>
