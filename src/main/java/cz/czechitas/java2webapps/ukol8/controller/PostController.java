@@ -25,7 +25,7 @@ public class PostController {
                 .addObject("post", postService.findByPublishedBeforeAndPublishedNotNull());
     }
 
-    @GetMapping(path = "/post/", params = "slug")
+    @GetMapping(path = "/post/{slug}")
     public ModelAndView singlePost(@PathVariable String slug, Pageable pageable) {
         return new ModelAndView("post")
                 .addObject("post", postService.findBySlug(slug, Pageable.unpaged()));

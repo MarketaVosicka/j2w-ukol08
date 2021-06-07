@@ -49,7 +49,3 @@ Kočka: „Pán mě krmí, stará se o mě, dává mi střechu nad hlavou - urč
        ('vtip-14', 'Markéta', 'Zajíc', 'Jde zajíc po poušti, potká ho žirafa a ptá se:', 'Jde zajíc po poušti, potká ho žirafa a ptá se: "Zajíci, proč za sebou táhneš ty dveře od auta?"
 A zajíc na to: "Kdyby mi bylo horko, tak si otevřu okýnko."', '2021-02-06'),
        ('vtip-15', 'Markéta', 'Zlatá ryba', 'Dědeček vyloví zlatou rybku. ', 'Dědeček vyloví zlatou rybku. Rybka řekne dědečkovi:"když mě pustíš splnímti tři přání". Dédeček rybce odpoví:"toti nepomůže,já jsem kouzelný dědeček.', '2021-04-19');
-
-
-
-

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
-    Pageable page = PageRequest.of(0, 2, Sort.by("published").descending());
+    Pageable page = PageRequest.of(0, 20, Sort.by("published").descending());
 
     Page<Post> findBySlug(String slug, Pageable pageable);
 
